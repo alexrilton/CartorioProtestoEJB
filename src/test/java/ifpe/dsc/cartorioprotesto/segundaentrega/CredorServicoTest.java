@@ -48,24 +48,24 @@ public class CredorServicoTest {
 
     @Test
     public void consultarCredor() throws NamingException {
-        Credor object = objectServico.getCredorByCPF("051.239.054-13");
+        Credor object = objectServico.getCredorPorNome("Luka Modrich");
         Assert.assertNotNull(object);
         Assert.assertTrue("ansca@ig.com.br".equals(object.getEmail()));
     }
 
     @Test
     public void atualizarCredor() throws NamingException {
-        Credor object = objectServico.getCredorByCPF("020.563.268-84");
+        Credor object = objectServico.getCredorPorNome("Luka Modrich");
         Assert.assertNotNull(object);
         object.setEmail("paulodevteam@gmail.com");
         objectServico.atualizar(object);
-        Credor object2 = objectServico.getCredorByCPF("020.563.268-84");
+        Credor object2 = objectServico.getCredorPorNome("Luka Modrich");
         Assert.assertFalse("abdcads@hotmail.com.br".equals(object2.getEmail()));
     }
 
     @Test
     public void atualizarCredorInvalido() {
-        Credor object = objectServico.getCredorByCPF("711.319.163-01");
+        Credor object = objectServico.getCredorPorNome("Luka Modrich");
         Assert.assertNotNull(object);
         object.setCpf("48569102216");
 
@@ -84,10 +84,10 @@ public class CredorServicoTest {
 
     @Test(expected = EJBException.class)
     public void removerCredor() throws NamingException {
-        Credor object = objectServico.getCredorByCPF("284.511.124-04");
+        Credor object = objectServico.getCredorPorNome("Luka Modrich");
         Assert.assertNotNull(object);
         objectServico.remover(object);
-        object = objectServico.getCredorByCPF("284.511.124-04");
+        object = objectServico.getCredorPorNome("Luka Modrich");
         Assert.assertNull(object);
     }
 
@@ -100,7 +100,7 @@ public class CredorServicoTest {
         credor.setCpf("528.475.090-19");
 
         objectServico.salvar(credor);
-        Credor object = objectServico.getCredorByCPF("528.475.090-19");
+        Credor object = objectServico.getCredorPorNome("Luka Modrich");
         Assert.assertNotNull(object);
     }
 
