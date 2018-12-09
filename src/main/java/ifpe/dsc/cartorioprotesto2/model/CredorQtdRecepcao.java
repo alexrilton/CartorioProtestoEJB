@@ -1,0 +1,71 @@
+package ifpe.dsc.cartorioprotesto2.model;
+
+import java.io.Serializable;
+
+
+public class CredorQtdRecepcao implements Serializable{
+   
+    private Long id;
+    private String nome;   
+    private String cpf;
+    private String telefone;
+    private String email;
+    private Long numRecepcoes;
+    
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public Long getNumRecepcoes() {
+        return numRecepcoes;
+    }
+
+    public void setNumRecepcoes(Long numRecepcoes) {
+        this.numRecepcoes = numRecepcoes;
+    }
+    
+    public CredorQtdRecepcao(Long id, String nome, String cpf, String telefone, String email, Long numRecepcoes) {
+        this.id = id;
+        this.nome = nome;
+        this.cpf = cpf;
+        this.telefone = telefone;
+        this.email = email;
+        this.numRecepcoes = numRecepcoes;
+    }
+}
