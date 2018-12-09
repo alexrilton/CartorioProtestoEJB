@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <!-- Teste Crud -->
+    <!-- id = 01 --><TB_CREDOR txt_nome="Ciro Gomes" txt_cpf="445.456.456-66" txt_telefone="99988-6565" txt_email="cirogomes@gmail.com" />
+    <!-- id = 02 --><TB_CREDOR txt_nome="Carmen Silva" txt_cpf="809.011.450-41" txt_telefone="98881-0001" txt_email="carmensilva@gmail.com" />
+    <!-- id = 03 --><TB_CREDOR txt_nome="Gildete de Souza" txt_cpf="542.087.590-03" txt_telefone="99988-4569" txt_email="gildetesouza@gmail.com" />
+    <!-- id = 04 --><TB_CREDOR txt_nome="Caio Fernandes" txt_cpf="351.952.090-73" txt_telefone="99988-3562" txt_email="caiofernandes@gmail.com" />
+    <!-- id = 05 --><TB_CREDOR txt_nome="Silvio Costa" txt_cpf="585.055.810-16" txt_telefone="99988-6525" txt_email="silviocosta@gmail.com" />
+    <!-- id = 06 --><TB_CREDOR txt_nome="Renata Vasconcelos" txt_cpf="523.533.150-89" txt_telefone="99988-4263" txt_email="renatavasconcelos@gmail.com" />
+    <!-- id = 07 --><TB_CREDOR txt_nome="Sara Gusmão" txt_cpf="980.236.300-67" txt_telefone="99988-5236" txt_email="saragusmao@gmail.com" />
+    <!-- id = 08 --><TB_CREDOR txt_nome="Vitor Saldanha" txt_cpf="678.680.210-98" txt_telefone="99988-2121" txt_email="vitorsaldanha@gmail.com" />
+    <!-- id = 09 --><TB_CREDOR txt_nome="João Amoedo" txt_cpf="686.117.640-05" txt_telefone="99988-5928" txt_email="joaoamoedo@gmail.com" />
+    <!-- id = 10 --><TB_CREDOR txt_nome="Luka Modrich" txt_cpf="846.160.530-65" txt_telefone="99988-2529" txt_email="lukamodrich@gmail.com" />
+    
+    <!-- id = 01 --><TB_DEVEDOR txt_nome="Guilherme Boulos" txt_cpf="639.046.840-78" />
+    <!-- id = 02 --><TB_DEVEDOR txt_nome="Paulo Costa" txt_cpf="427.161.640-02" />
+    <!-- id = 03 --><TB_DEVEDOR txt_nome="Michele Castelo Branco" txt_cpf="172.040.800-92" />
+    <!-- id = 04 --><TB_DEVEDOR txt_nome="Filomena da Silva" txt_cpf="489.908.690-30" />
+    <!-- id = 05 --><TB_DEVEDOR txt_nome="Vinicius Falcao" txt_cpf="960.977.900-07" />
+    <!-- id = 06 --><TB_DEVEDOR txt_nome="Gilberto Junior" txt_cpf="650.276.750-89" />
+    <!-- id = 07 --><TB_DEVEDOR txt_nome="Edmilson Vasconcelos" txt_cpf="431.329.180-67" />
+    <!-- id = 08 --><TB_DEVEDOR txt_nome="Jesiel Silva" txt_cpf="477.388.470-34" />
+    <!-- id = 09 --><TB_DEVEDOR txt_nome="Francisco Silva" txt_cpf="879.641.120-15" />
+    <!-- id = 10 --><TB_DEVEDOR txt_nome="Schergio Mhelloh" txt_cpf="819.580.630-96" />
+    
+    <!-- id = 01 --><TB_RECEPCAO dt_data="2018-07-23 18:45:00" num_numero="2018011"/>
+    <!-- id = 02 --><TB_RECEPCAO dt_data="2018-04-18 11:44:00" num_numero="2018001"/>
+    <!-- id = 03 --><TB_RECEPCAO dt_data="2018-04-05 14:25:00" num_numero="2018007"/>
+    <!-- id = 04 --><TB_RECEPCAO dt_data="2018-09-02 18:19:00" num_numero="2018022"/>
+    
+    <TB_RECEPCOES_CREDORES id_recepcao ="1" id_credor= "1" />
+    <TB_RECEPCOES_CREDORES id_recepcao ="2" id_credor= "1" />
+    <TB_RECEPCOES_CREDORES id_recepcao ="3" id_credor= "7" />
+    <TB_RECEPCOES_CREDORES id_recepcao ="4" id_credor= "2" />
+    
+    <TB_RECEPCOES_DEVEDORES id_recepcao="1" id_devedor= "6" />
+    <TB_RECEPCOES_DEVEDORES id_recepcao="2" id_devedor= "3" />
+    <TB_RECEPCOES_DEVEDORES id_recepcao="3" id_devedor= "2" />
+    <TB_RECEPCOES_DEVEDORES id_recepcao="4" id_devedor= "2" />   
+    
+    <!-- id = 01 --><TB_GUIA num_numero="20180001" dt_data="2018-07-23 18:45:00" num_valor="73.20" id_recepcao="1"/>
+    <!-- id = 02 --><TB_GUIA num_numero="20180002" dt_data="2018-03-18 11:44:00" num_valor="569.85" id_recepcao="2"/>
+    <!-- id = 03 --><TB_GUIA num_numero="20180003" dt_data="2018-04-05 14:25:00" num_valor="5789.14" id_recepcao="3"/>
+    <!-- id = 04 --><TB_GUIA num_numero="20180004" dt_data="2018-09-02 18:19:00" num_valor="214.56" id_recepcao="4"/>
+
+    <!-- id = 01 --><TB_TITULO txt_natureza="Protesto de pessoa fisica" num_valor="1500.00" id_recepcao="1" />
+    <!-- id = 02 --><TB_TITULO txt_natureza="Protesto de pessoa Juridica" num_valor="2700.00" id_recepcao="2" />
+    <!-- id = 03 --><TB_TITULO txt_natureza="Protesto de pessoa fisica" num_valor="1974.98" id_recepcao="1" />
+    <!-- id = 04 --><TB_TITULO txt_natureza="Protesto de pessoa Juridica" num_valor="142548.56" id_recepcao="3" />
+    <!-- id = 05 --><TB_TITULO txt_natureza="Protesto de pessoa Fisica" num_valor="37800.00" id_recepcao="4" />
+    <!-- id = 06 --><TB_TITULO txt_natureza="Protesto de pessoa Juridica" num_valor="14589.00" id_recepcao="2" />
+    <!-- id = 07 --><TB_TITULO txt_natureza="Protesto de pessoa Fisica" num_valor="2014.00" id_recepcao="1" />
+    <!-- id = 08 --><TB_TITULO txt_natureza="Protesto de pessoa Juridica" num_valor="2113.00" id_recepcao="3" />
+    
+    <!-- Teste JPQL -->
+    
+    <!-- Credor -->
+    
+    <!-- id = 11 --><TB_CREDOR txt_nome="Kassimo Alves de Souza" txt_cpf="562.989.480-31" txt_telefone="99856-3695" txt_email="joaoalves@gmail.com" />
+    <!-- id = 12 --><TB_CREDOR txt_nome="Kassimo Cesar Francisco" txt_cpf="074.316.280-30" txt_telefone="98965-8659" txt_email="joaocesar@gmail.com" />
+    <!-- id = 13 --><TB_CREDOR txt_nome="Gerlane Lopes" txt_cpf="634.633.050-03" txt_telefone="99653-9856" txt_email="gerlanelopes@gmail.com" />
+    <!-- id = 14 --><TB_CREDOR txt_nome="Irah Caldeira" txt_cpf="435.185.900-81" txt_telefone="99658-6983" txt_email="irahcaldeira@gmail.com" />
+    <!-- id = 15 --><TB_CREDOR txt_nome="Mario Silva Filho" txt_cpf="549.101.390-01" txt_telefone="99416-2627" txt_email="mariofilho@gmail.com" />
+    <!-- id = 16 --><TB_CREDOR txt_nome="Michelangelo de Roma" txt_cpf="623.563.030-14" txt_telefone="99635-5869" txt_email="michelangelo@gmail.com" />
+    <!-- id = 17 --><TB_CREDOR txt_nome="Leonardo da Vinci" txt_cpf="835.838.000-36" txt_telefone="99658-6536" txt_email="leonardovinci@gmail.com" />
+    
+    
+    <!-- Devedor -->    
+    
+    <!-- id = 11 --><TB_DEVEDOR txt_nome="Maria Fernanda Katai" txt_cpf="503.010.470-49" />
+    <!-- id = 12 --><TB_DEVEDOR txt_nome="Gilberto Gil" txt_cpf="690.370.550-36" />
+    <!-- id = 13 --><TB_DEVEDOR txt_nome="Caetano Veloso" txt_cpf="400.078.780-28" />
+    <!-- id = 14 --><TB_DEVEDOR txt_nome="Maria Bethania" txt_cpf="680.595.870-99" />
+    <!-- id = 15 --><TB_DEVEDOR txt_nome="Djavan Francisco" txt_cpf="920.917.660-03" />
+    <!-- id = 16 --><TB_DEVEDOR txt_nome="Junior Caldas" txt_cpf="488.637.950-88" />
+    <!-- id = 17 --><TB_DEVEDOR txt_nome="Pablo Vittar" txt_cpf="875.827.800-19" />
+    <!-- id = 18 --><TB_DEVEDOR txt_nome="Sandra de Sá" txt_cpf="028.659.390-49" />
+    <!-- id = 19 --><TB_DEVEDOR txt_nome="Francisco Buarque" txt_cpf="131.924.470-01" />
+    <!-- id = 20 --><TB_DEVEDOR txt_nome="Maria Cerqueira" txt_cpf="786.877.280-85" />
+    
+    <!-- Recepcao -->
+    
+    <!-- id = 05 --><TB_RECEPCAO dt_data="2018-07-15 18:45:00" num_numero="2018023"/> //
+    <!-- id = 06 --><TB_RECEPCAO dt_data="2018-04-19 11:44:00" num_numero="2018024"/>
+    <!-- id = 07 --><TB_RECEPCAO dt_data="2018-05-14 14:25:00" num_numero="2018025"/>
+    <!-- id = 08 --><TB_RECEPCAO dt_data="2018-10-04 18:19:00" num_numero="2018026"/>
+    <!-- id = 09 --><TB_RECEPCAO dt_data="2018-06-29 18:45:00" num_numero="2018027"/>
+    <!-- id = 10 --><TB_RECEPCAO dt_data="2018-04-19 11:44:00" num_numero="2018028"/>
+    <!-- id = 11 --><TB_RECEPCAO dt_data="2018-01-20 14:25:00" num_numero="2018029"/>
+    <!-- id = 12 --><TB_RECEPCAO dt_data="2018-10-16 18:19:00" num_numero="2018030"/>
+    <!-- id = 13 --><TB_RECEPCAO dt_data="2018-10-05 18:19:00" num_numero="2018045"/>
+    
+    <!-- Recepcao_credor -->
+    
+    <TB_RECEPCOES_CREDORES id_recepcao ="5" id_credor= "11" />
+    <TB_RECEPCOES_CREDORES id_recepcao ="6" id_credor= "11" />
+    <TB_RECEPCOES_CREDORES id_recepcao ="7" id_credor= "13" />
+    <TB_RECEPCOES_CREDORES id_recepcao ="8" id_credor= "12" />
+    <TB_RECEPCOES_CREDORES id_recepcao ="9" id_credor= "15" />
+    <TB_RECEPCOES_CREDORES id_recepcao ="10" id_credor= "15" />
+    <TB_RECEPCOES_CREDORES id_recepcao ="11" id_credor= "16" />
+    <TB_RECEPCOES_CREDORES id_recepcao ="12" id_credor= "17" />
+     <TB_RECEPCOES_CREDORES id_recepcao ="13" id_credor= "17" />
+    
+    <!-- Recepcao_devedor -->
+    
+    <TB_RECEPCOES_DEVEDORES id_recepcao="5" id_devedor= "11" />
+    <TB_RECEPCOES_DEVEDORES id_recepcao="6" id_devedor= "11" />
+    <TB_RECEPCOES_DEVEDORES id_recepcao="7" id_devedor= "18" />
+    <TB_RECEPCOES_DEVEDORES id_recepcao="8" id_devedor= "18" />
+    <TB_RECEPCOES_DEVEDORES id_recepcao="9" id_devedor= "15" />
+    <TB_RECEPCOES_DEVEDORES id_recepcao="10" id_devedor= "16" />
+    <TB_RECEPCOES_DEVEDORES id_recepcao="11" id_devedor= "14" />
+    <TB_RECEPCOES_DEVEDORES id_recepcao="12" id_devedor= "18" /> 
+    <TB_RECEPCOES_DEVEDORES id_recepcao="13" id_devedor= "18" />  
+    
+    <!-- Guia -->    
+    
+    <!-- id = 05 --><TB_GUIA num_numero="20170001" dt_data="2017-10-23 18:45:00" num_valor="73.20" id_recepcao="5"/>
+    <!-- id = 06 --><TB_GUIA num_numero="20170002" dt_data="2017-10-23 11:44:00" num_valor="569.85" id_recepcao="6" />
+    <!-- id = 07 --><TB_GUIA num_numero="20170003" dt_data="2017-12-19 14:25:00" num_valor="5789.14" id_recepcao="7"/>
+    <!-- id = 08 --><TB_GUIA num_numero="20180014" dt_data="2018-01-02 18:19:00" num_valor="214.56" id_recepcao="8"/>
+    <!-- id = 09 --><TB_GUIA num_numero="20180015" dt_data="2018-01-23 18:45:00" num_valor="73.20" id_recepcao="9"/>
+    <!-- id = 10 --><TB_GUIA num_numero="20180016" dt_data="2018-03-18 11:44:00" num_valor="569.85" id_recepcao="10"/>
+    <!-- id = 11 --><TB_GUIA num_numero="20180017" dt_data="2018-03-05 14:25:00" num_valor="5789.14" id_recepcao="11"/>
+    <!-- id = 12 --><TB_GUIA num_numero="20180018" dt_data="2018-03-02 18:19:00" num_valor="214.56" id_recepcao="12"/>
+
+    <!-- Titulo -->
+    
+    <!-- id = 05 --><TB_TITULO txt_natureza="Protesto de pessoa fisica" num_valor="1500.00" id_recepcao="5" />
+    <!-- id = 06 --><TB_TITULO txt_natureza="Protesto de pessoa Juridica" num_valor="5100.00" id_recepcao="5" />
+    <!-- id = 07 --><TB_TITULO txt_natureza="Protesto de pessoa fisica" num_valor="5200.00" id_recepcao="6" />
+    <!-- id = 08 --><TB_TITULO txt_natureza="Protesto de pessoa Juridica" num_valor="3184.56" id_recepcao="7" />
+    <!-- id = 09 --><TB_TITULO txt_natureza="Protesto de pessoa Fisica" num_valor="115200.00" id_recepcao="8" />
+    <!-- id = 10 --><TB_TITULO txt_natureza="Protesto de pessoa Juridica" num_valor="1454.00" id_recepcao="9" />
+    <!-- id = 11 --><TB_TITULO txt_natureza="Protesto de pessoa Fisica" num_valor="954.00" id_recepcao="10" />
+    <!-- id = 12 --><TB_TITULO txt_natureza="Protesto de pessoa Juridica" num_valor="15485.00" id_recepcao="11" />
+    <!-- id = 13 --><TB_TITULO txt_natureza="Protesto de pessoa Juridica" num_valor="15485.00" id_recepcao="12" />
+        
+</dataset>

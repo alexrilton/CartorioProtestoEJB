@@ -1,4 +1,4 @@
-package ifpe.dsc.cartorioprotesto2.servlet;
+package ifpe.dsc.cartorioprotesto.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;

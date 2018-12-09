@@ -1,4 +1,4 @@
-package ifpe.dsc.cartorioprotesto2.model;
+package ifpe.dsc.cartorioprotesto.model;
 
 import java.util.Date;
 import javax.persistence.Column;
