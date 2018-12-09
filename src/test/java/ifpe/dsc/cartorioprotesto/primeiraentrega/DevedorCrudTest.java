@@ -1,6 +1,6 @@
 package ifpe.dsc.cartorioprotesto.primeiraentrega;
 
-import JPA.Devedor;
+import ifpe.dsc.cartorioprotesto.model.Devedor;
 import javax.persistence.CacheRetrieveMode;
 import javax.persistence.TypedQuery;
 import org.junit.Test;
@@ -25,7 +25,7 @@ public class DevedorCrudTest extends TesteGenerico {
     @Test
     public void atualizarDevedor(){
         logger.info("Executando persistirDevedor()");
-        TypedQuery<Devedor> query = em.createNamedQuery("Devedor.PorNome", Devedor.class);
+        TypedQuery<Devedor> query = em.createNamedQuery(Devedor.DEVEDOR_POR_NOME, Devedor.class);
         query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
         query.setParameter("nome", "Schergio Mhelloh");
         Devedor devedor = query.getSingleResult();
@@ -41,7 +41,7 @@ public class DevedorCrudTest extends TesteGenerico {
     @Test
     public void atualizarDevedorMerge(){
         logger.info("Executando atualizarDevedorMerge()");
-        TypedQuery<Devedor> query = em.createNamedQuery("Devedor.PorNome", Devedor.class);
+        TypedQuery<Devedor> query = em.createNamedQuery(Devedor.DEVEDOR_POR_NOME, Devedor.class);
         query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
         query.setParameter("nome", "Michele Castelo Branco");
         Devedor devedor = query.getSingleResult();
@@ -58,7 +58,7 @@ public class DevedorCrudTest extends TesteGenerico {
     @Test
     public void removerDevedor() {
         logger.info("Executando removerDevedor()");
-        TypedQuery<Devedor> query = em.createNamedQuery("Devedor.PorNome", Devedor.class);
+        TypedQuery<Devedor> query = em.createNamedQuery(Devedor.DEVEDOR_POR_NOME, Devedor.class);
         query.setParameter("nome", "Guilherme Boulos");
         Devedor devedor = query.getSingleResult();
         assertNotNull(devedor);

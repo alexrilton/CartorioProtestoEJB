@@ -1,3 +1,4 @@
+
 package ifpe.dsc.cartorioprotesto.primeiraentrega;
 
 import ifpe.dsc.cartorioprotesto.model.Credor;
@@ -23,9 +24,9 @@ public class CredorJpqlTets extends TesteGenerico {
         querycredor.setParameter("nome", "Kassimo%");
         List<Credor> credores = querycredor.getResultList();
 
-        credores.forEach((credor) -> {
+        for (Credor credor : credores) {
             assertTrue(credor.getNome().startsWith("Kassimo"));
-       });
+        }
 
         assertEquals(2, credores.size());
     }
@@ -60,7 +61,7 @@ public class CredorJpqlTets extends TesteGenerico {
     @Test
     public void credoresQtdRecepcoes() {
         logger.info("Executando credoresComMaisRecepcoes()");
-        Query querycredor = em.createNamedQuery("quantidadeRecepcoes");
+        Query querycredor = em.createNamedQuery(Credor.CREDOR_QTD_RECEPCOES);
         List<CredorQtdRecepcao> credores = querycredor.getResultList();        
         assertEquals(9, credores.size());
         assertEquals("Ciro Gomes", credores.get(0).getNome());

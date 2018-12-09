@@ -28,10 +28,10 @@
     <!-- id = 03 --><TB_RECEPCAO dt_data="2018-04-05 14:25:00" num_numero="2018007"/>
     <!-- id = 04 --><TB_RECEPCAO dt_data="2018-09-02 18:19:00" num_numero="2018022"/>
     
-    <TB_RECEPCOES_CREDORES id_recepcao ="1" id_credor= "1" />
-    <TB_RECEPCOES_CREDORES id_recepcao ="2" id_credor= "1" />
-    <TB_RECEPCOES_CREDORES id_recepcao ="3" id_credor= "7" />
-    <TB_RECEPCOES_CREDORES id_recepcao ="4" id_credor= "2" />
+    <TB_RECEPCOES_CREDORES id_recepcao ="1" ID_CREDOR= "1" />
+    <TB_RECEPCOES_CREDORES id_recepcao ="2" ID_CREDOR= "1" />
+    <TB_RECEPCOES_CREDORES id_recepcao ="3" ID_CREDOR= "7" />
+    <TB_RECEPCOES_CREDORES id_recepcao ="4" ID_CREDOR= "2" />
     
     <TB_RECEPCOES_DEVEDORES id_recepcao="1" id_devedor= "6" />
     <TB_RECEPCOES_DEVEDORES id_recepcao="2" id_devedor= "3" />
@@ -92,15 +92,15 @@
     
     <!-- Recepcao_credor -->
     
-    <TB_RECEPCOES_CREDORES id_recepcao ="5" id_credor= "11" />
-    <TB_RECEPCOES_CREDORES id_recepcao ="6" id_credor= "11" />
-    <TB_RECEPCOES_CREDORES id_recepcao ="7" id_credor= "13" />
-    <TB_RECEPCOES_CREDORES id_recepcao ="8" id_credor= "12" />
-    <TB_RECEPCOES_CREDORES id_recepcao ="9" id_credor= "15" />
-    <TB_RECEPCOES_CREDORES id_recepcao ="10" id_credor= "15" />
-    <TB_RECEPCOES_CREDORES id_recepcao ="11" id_credor= "16" />
-    <TB_RECEPCOES_CREDORES id_recepcao ="12" id_credor= "17" />
-     <TB_RECEPCOES_CREDORES id_recepcao ="13" id_credor= "17" />
+    <TB_RECEPCOES_CREDORES id_recepcao ="5" ID_CREDOR= "11" />
+    <TB_RECEPCOES_CREDORES id_recepcao ="6" ID_CREDOR= "11" />
+    <TB_RECEPCOES_CREDORES id_recepcao ="7" ID_CREDOR= "13" />
+    <TB_RECEPCOES_CREDORES id_recepcao ="8" ID_CREDOR= "12" />
+    <TB_RECEPCOES_CREDORES id_recepcao ="9" ID_CREDOR= "15" />
+    <TB_RECEPCOES_CREDORES id_recepcao ="10" ID_CREDOR= "15" />
+    <TB_RECEPCOES_CREDORES id_recepcao ="11" ID_CREDOR= "16" />
+    <TB_RECEPCOES_CREDORES id_recepcao ="12" ID_CREDOR= "17" />
+     <TB_RECEPCOES_CREDORES id_recepcao ="13" ID_CREDOR= "17" />
     
     <!-- Recepcao_devedor -->
     

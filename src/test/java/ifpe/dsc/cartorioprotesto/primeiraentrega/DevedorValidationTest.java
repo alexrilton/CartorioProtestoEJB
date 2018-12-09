@@ -23,15 +23,15 @@ public class DevedorValidationTest extends TesteGenerico {
             em.persist(devedor);
         }catch (ConstraintViolationException ex) {
             Set<ConstraintViolation<?>> constraintViolations = ex.getConstraintViolations();
-            
-            constraintViolations.forEach((violation) -> {
+                        
+            for (ConstraintViolation<?> violation : constraintViolations) {
                 System.out.println(violation.getRootBeanClass() + "." + violation.getPropertyPath() + ": " + violation.getMessage());
                 assertThat(violation.getRootBeanClass() + "." + violation.getPropertyPath() + ": " + violation.getMessage(), 
                         CoreMatchers.anyOf(
-                                startsWith("class JPA.Devedor.nome: caracteres invalidos"),
-                                startsWith("class JPA.Devedor.cpf: CPF Invalido"),
-                                startsWith("class JPA.Devedor.cpf: não pode estar vazio")));
-            });
+                                startsWith("class ifpe.dsc.cartorioprotesto.model.Devedor.nome: caracteres invalidos"),
+                                startsWith("class ifpe.dsc.cartorioprotesto.model.Devedor.cpf: CPF Invalido"),
+                                startsWith("class ifpe.dsc.cartorioprotesto.model.Devedor.cpf: não pode estar vazio")));
+            }
             
             assertEquals(3, constraintViolations.size());            
             assertNull(devedor.getId());
@@ -53,11 +53,11 @@ public class DevedorValidationTest extends TesteGenerico {
             em.flush();
         } catch (ConstraintViolationException ex) {    
             Set<ConstraintViolation<?>> constraintViolations = ex.getConstraintViolations();
-            constraintViolations.forEach((violation) -> {
+            for (ConstraintViolation<?> violation : constraintViolations) {
                 assertThat(violation.getMessage(), 
                         CoreMatchers.anyOf(
                                 startsWith("não pode estar vazio")));
-            });
+            }
             assertEquals(1, ex.getConstraintViolations().size());
             throw ex;
         }

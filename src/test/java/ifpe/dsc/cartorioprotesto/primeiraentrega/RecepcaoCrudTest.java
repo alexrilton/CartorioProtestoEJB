@@ -21,10 +21,10 @@ public class RecepcaoCrudTest extends TesteGenerico {
     public void persistirRecepcao() {
         logger.info("Executando persistirRecepcao()");
         
-        TypedQuery<Credor> querycredor = em.createNamedQuery("Credor.PorNome", Credor.class);
-        TypedQuery<Devedor> querydevedor = em.createNamedQuery("Devedor.PorNome", Devedor.class);
-        TypedQuery<Guia> queryguia = em.createNamedQuery("Guia.PorRecepcao", Guia.class);         
-        TypedQuery<Titulo> querytitulo = em.createNamedQuery("Titulo.PorRecepcao", Titulo.class);         
+        TypedQuery<Credor> querycredor = em.createNamedQuery(Credor.CREDOR_POR_NOME, Credor.class);
+        TypedQuery<Devedor> querydevedor = em.createNamedQuery(Devedor.DEVEDOR_POR_NOME, Devedor.class);
+        TypedQuery<Guia> queryguia = em.createNamedQuery(Guia.GUIA_POR_RECEPCAO, Guia.class);         
+        TypedQuery<Titulo> querytitulo = em.createNamedQuery(Titulo.TITULO_POR_RECEPCAO, Titulo.class);         
         querycredor.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);                
         querydevedor.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);        
         queryguia.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);        
@@ -63,7 +63,7 @@ public class RecepcaoCrudTest extends TesteGenerico {
     @Test
     public void atualizarRecepcao(){
         logger.info("Executando persistirRecepcao()");
-        TypedQuery<Recepcao> queryrecepcao = em.createNamedQuery("Recepcao.PorNumero", Recepcao.class);
+        TypedQuery<Recepcao> queryrecepcao = em.createNamedQuery(Recepcao.RECEPCAO_POR_NUMERO, Recepcao.class);
         queryrecepcao.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
         queryrecepcao.setParameter("numero", 2018011);
         Recepcao recepcao = queryrecepcao.getSingleResult();
@@ -79,7 +79,7 @@ public class RecepcaoCrudTest extends TesteGenerico {
     @Test
     public void atualizarRecepcaoMerge(){
         logger.info("Executando atualizarRecepcaoMerge()");
-        TypedQuery<Recepcao> queryrecepcao = em.createNamedQuery("Recepcao.PorNumero", Recepcao.class); 
+        TypedQuery<Recepcao> queryrecepcao = em.createNamedQuery(Recepcao.RECEPCAO_POR_NUMERO, Recepcao.class); 
         queryrecepcao.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
         queryrecepcao.setParameter("numero", 2018007);
         Recepcao recepcao = queryrecepcao.getSingleResult();
@@ -96,8 +96,8 @@ public class RecepcaoCrudTest extends TesteGenerico {
     @Test
     public void removerRecepcao() {
         logger.info("Executando removerRecepcao()");
-        TypedQuery<Recepcao> queryrecepcao = em.createNamedQuery("Recepcao.PorNumero", Recepcao.class);
-        TypedQuery<Guia> queryguia = em.createNamedQuery("Guia.PorRecepcao", Guia.class);
+        TypedQuery<Recepcao> queryrecepcao = em.createNamedQuery(Recepcao.RECEPCAO_POR_NUMERO, Recepcao.class);
+        TypedQuery<Guia> queryguia = em.createNamedQuery(Guia.GUIA_POR_RECEPCAO, Guia.class);
         queryrecepcao.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
         queryguia.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
         queryrecepcao.setParameter("numero", 2018022);

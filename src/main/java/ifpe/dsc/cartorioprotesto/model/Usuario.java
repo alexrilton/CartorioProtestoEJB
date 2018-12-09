@@ -1,12 +1,10 @@
 package ifpe.dsc.cartorioprotesto.model;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorColumn;
 import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.Table;
@@ -20,11 +18,7 @@ import org.hibernate.validator.constraints.br.CPF;
 @Table(name = "TB_USUARIO")
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorColumn(name = "DISC_USUARIO", discriminatorType = DiscriminatorType.STRING, length = 1)
-public abstract class Usuario {
-    @Id
-    @Column(name = "ID_USUARIO")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public abstract class Usuario extends Entidade implements Serializable {
     
     @NotBlank
     @Size(max = 100)
@@ -47,14 +41,6 @@ public abstract class Usuario {
             message = "{JPA.Usuario.senha}")
     @Column(name = "TXT_SENHA")
     private String senha;
-    
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
     
     public String getNome() {
         return nome;
@@ -86,30 +72,5 @@ public abstract class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-    
-    
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof Devedor)) {
-            return false;
-        }
-        Usuario other = (Usuario) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "jpa.Tag[ id=" + id + ":" + nome + " ]";
     }
 }

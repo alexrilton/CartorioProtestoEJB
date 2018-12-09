@@ -21,11 +21,10 @@ public class DevedorJpqlTest extends TesteGenerico {
                 Devedor.class);
         querydevedor.setParameter("nome", "%Maria%");
         List<Devedor> devedores = querydevedor.getResultList();
-
-        devedores.forEach((credor) -> {
-            assertTrue(credor.getNome().contains("Maria"));
-       });
-
+        
+        for (Devedor devedor : devedores) {
+            assertTrue(devedor.getNome().contains("Maria"));
+        }
         assertEquals(3, devedores.size());
     }
     

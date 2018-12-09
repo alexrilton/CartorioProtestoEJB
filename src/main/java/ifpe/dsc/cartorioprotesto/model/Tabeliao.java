@@ -9,7 +9,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "TB_TABELIAO")
 @DiscriminatorValue(value = "T")
-@PrimaryKeyJoinColumn(name="ID_USUARIO", referencedColumnName = "ID_USUARIO")
+@PrimaryKeyJoinColumn(name="ID", referencedColumnName = "ID")
 public class Tabeliao extends Usuario {
     
     @Column(name = "REGISTRO_TJ", nullable = false)

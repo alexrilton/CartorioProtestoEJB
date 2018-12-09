@@ -21,7 +21,7 @@ public class RecepcaoJpqlTest extends TesteGenerico {
     @Test
     public void recepcaoPorNumero() {
         logger.info("Executando recepcaoPorNumero()");
-        TypedQuery<Recepcao> queryrecepcao = em.createNamedQuery("Recepcao.PorNumero", Recepcao.class);
+        TypedQuery<Recepcao> queryrecepcao = em.createNamedQuery(Recepcao.RECEPCAO_POR_NUMERO, Recepcao.class);
         queryrecepcao.setParameter("numero", 2018011);
         List<Recepcao> recepcoes = queryrecepcao.getResultList();
         assertEquals(1, recepcoes.size());

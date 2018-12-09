@@ -4,9 +4,6 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
@@ -21,16 +18,14 @@ import javax.validation.constraints.Size;
 @NamedQueries(
         {
             @NamedQuery(
-                    name = "Titulo.PorRecepcao",
+                    name = Titulo.TITULO_POR_RECEPCAO,
                     query = "SELECT t FROM Titulo t WHERE t.recepcao.id = :idRecepcao ORDER BY t.id"
             )
         }
 )
-public class Titulo implements Serializable{
-    @Id
-    @Column(name = "ID_TITULO")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Titulo extends Entidade implements Serializable{
+    
+    public static final String TITULO_POR_RECEPCAO = "TituloPorRecepcao";
     
     @Size(max = 100)
     @Column(name = "TXT_NATUREZA", length = 100, nullable = false, unique = false)
@@ -43,7 +38,7 @@ public class Titulo implements Serializable{
     
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "ID_RECEPCAO", referencedColumnName = "ID_RECEPCAO")
+    @JoinColumn(name = "ID_RECEPCAO", referencedColumnName = "ID")
     private Recepcao recepcao;
 
     public void setRecepcao(Recepcao recepcao) {
@@ -53,15 +48,7 @@ public class Titulo implements Serializable{
     public Recepcao getRecepcao() {
         return recepcao;
     }
-    
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-    
+        
     public String getNatureza() {
         return natureza;
     }
@@ -76,29 +63,5 @@ public class Titulo implements Serializable{
 
     public void setValor(double valor) {
         this.valor = valor;
-    }
-    
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof Titulo)) {
-            return false;
-        }
-        Titulo other = (Titulo) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "jpa.Tag[ id=" + id + ":" + natureza + " ]";
     }
 }

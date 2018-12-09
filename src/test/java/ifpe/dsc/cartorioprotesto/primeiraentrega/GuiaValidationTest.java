@@ -20,7 +20,7 @@ public class GuiaValidationTest extends TesteGenerico {
     public void persistirGuiaInvalida() {
         Guia guia = null;
         try{
-            TypedQuery<Recepcao> queryrecepcao = em.createNamedQuery("Recepcao.PorNumero", Recepcao.class);
+            TypedQuery<Recepcao> queryrecepcao = em.createNamedQuery(Recepcao.RECEPCAO_POR_NUMERO, Recepcao.class);
             queryrecepcao.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
             queryrecepcao.setParameter("numero", 2018045);
             Recepcao recepcao = queryrecepcao.getSingleResult();
@@ -33,12 +33,12 @@ public class GuiaValidationTest extends TesteGenerico {
         }catch (ConstraintViolationException ex) {
             Set<ConstraintViolation<?>> constraintViolations = ex.getConstraintViolations();
             
-            constraintViolations.forEach((violation) -> {
+            for (ConstraintViolation<?> violation : constraintViolations) {
                 System.out.println(violation.getRootBeanClass() + "." + violation.getPropertyPath() + ": " + violation.getMessage());
                 assertThat(violation.getRootBeanClass() + "." + violation.getPropertyPath() + ": " + violation.getMessage(), 
                         CoreMatchers.anyOf(
-                                startsWith("class JPA.Guia.recepcao: may not be null")));
-            });
+                                startsWith("class ifpe.dsc.cartorioprotesto.model.Guia.recepcao: may not be null")));
+            }
             
             assertEquals(1, constraintViolations.size());            
             assertNull(guia.getId());

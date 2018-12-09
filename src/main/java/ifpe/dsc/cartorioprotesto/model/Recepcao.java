@@ -8,9 +8,6 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
@@ -27,17 +24,15 @@ import javax.persistence.TemporalType;
 @NamedQueries(
         {
             @NamedQuery(
-                    name = "Recepcao.PorNumero",
+                    name = Recepcao.RECEPCAO_POR_NUMERO,
                     query = "SELECT r FROM Recepcao r WHERE r.numero = :numero ORDER BY r.id"
             ) 
                 
         }
 )
-public class Recepcao implements Serializable{
-    @Id
-    @Column(name = "ID_RECEPCAO")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Recepcao extends Entidade implements Serializable{
+    
+    public static final String RECEPCAO_POR_NUMERO = "RecepcaoPorNumero";
     
     @Column(name = "NUM_NUMERO", nullable = false)
     private long numero;
@@ -55,23 +50,15 @@ public class Recepcao implements Serializable{
 
     @ManyToMany
     @JoinTable(name="TB_RECEPCOES_CREDORES", joinColumns=
-    {@JoinColumn(name="ID_RECEPCAO")}, inverseJoinColumns=
-      {@JoinColumn(name="ID_CREDOR")})
+    {@JoinColumn(name="ID_RECEPCAO", referencedColumnName = "ID")}, inverseJoinColumns=
+      {@JoinColumn(name="ID_CREDOR", referencedColumnName = "ID")})
     private List<Credor> credores = new ArrayList<>();
     
     @ManyToMany
     @JoinTable(name="TB_RECEPCOES_DEVEDORES", joinColumns=
-    {@JoinColumn(name="ID_RECEPCAO")}, inverseJoinColumns=
-      {@JoinColumn(name="ID_DEVEDOR")})
+    {@JoinColumn(name="ID_RECEPCAO", referencedColumnName = "ID")}, inverseJoinColumns=
+      {@JoinColumn(name="ID_DEVEDOR", referencedColumnName = "ID")})
     private List<Devedor> devedores = new ArrayList<>();
-    
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
     
     public long getNumero() {
         return numero;
@@ -107,25 +94,6 @@ public class Recepcao implements Serializable{
         return titulos;
     }
     
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof Recepcao)) {
-            return false;
-        }
-        Recepcao other = (Recepcao) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-    
     public List<Credor> getCredores() {
         return this.credores;
     }
@@ -156,10 +124,5 @@ public class Recepcao implements Serializable{
         if (this.devedores.contains(devedor)){
             this.devedores.remove(devedor);
         }
-    }
-
-    @Override
-    public String toString() {
-        return "jpa.Tag[ id=" + id + ":" + numero + " ]";
     }
 }

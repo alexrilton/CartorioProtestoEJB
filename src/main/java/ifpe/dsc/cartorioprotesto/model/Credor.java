@@ -6,9 +6,6 @@ import javax.persistence.Column;
 import javax.persistence.ColumnResult;
 import javax.persistence.ConstructorResult;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedNativeQueries;
 import javax.persistence.NamedNativeQuery;
@@ -40,20 +37,19 @@ import org.hibernate.validator.constraints.br.CPF;
 @NamedQueries(
         {
             @NamedQuery(
-                    name = "Credor.PorNome",
+                    name = Credor.CREDOR_POR_NOME,
                     query = "SELECT c FROM Credor c WHERE c.nome LIKE :nome ORDER BY c.id"
             )
         }
 )
 @NamedNativeQueries({
-    @NamedNativeQuery(name = "quantidadeRecepcoes", query = "SELECT c.ID_CREDOR as id, c.TXT_NOME as nome, c.TXT_CPF as cpf, c.TXT_TELEFONE as telefone, c.TXT_EMAIL as email, count(c.ID_CREDOR) as numRecepcoes FROM tb_credor c inner join  tb_recepcoes_credores rc on c.ID_CREDOR = rc.ID_CREDOR group by rc.ID_CREDOR order by numRecepcoes desc, nome", resultSetMapping = "CredorQtdRecepcao")
+    @NamedNativeQuery(name = Credor.CREDOR_QTD_RECEPCOES, query = "SELECT c.ID as id, c.TXT_NOME as nome, c.TXT_CPF as cpf, c.TXT_TELEFONE as telefone, c.TXT_EMAIL as email, count(c.ID) as numRecepcoes FROM tb_credor c inner join  tb_recepcoes_credores rc on c.ID = rc.ID_CREDOR group by rc.ID_CREDOR order by numRecepcoes desc, nome", resultSetMapping = "CredorQtdRecepcao")
 })
-public class Credor implements Serializable{
-    @Id
-    @Column(name = "ID_CREDOR")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class Credor extends Entidade implements Serializable{
     
+    public static final String CREDOR_POR_NOME = "CredorPorNome";
+    public static final String CREDOR_QTD_RECEPCOES = "CredorQuantidadeRecepcoes";
+            
     @NotBlank
     @Size(max = 100, message = "deve conter no maximo 100 caracteres")
     @Pattern(regexp = "[A-Za-záàâãéèêíïóôõöúçÁÀÂÃÉÈÍÏÓÔÕÖÚÇ0-9 ]*", message = "caracteres invalidos")
@@ -79,14 +75,6 @@ public class Credor implements Serializable{
 
     public List<Recepcao> getRecepcoes() {
         return recepcoes;
-    }
-    
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
     
     public String getNome() {
@@ -119,29 +107,5 @@ public class Credor implements Serializable{
 
     public void setEmail(String email) {
         this.email = email;
-    }
-    
-    @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        if (!(object instanceof Credor)) {
-            return false;
-        }
-        Credor other = (Credor) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
-    public String toString() {
-        return "jpa.Tag[ id=" + id + ":" + nome + " ]";
-    }
+    }    
 }

@@ -27,7 +27,7 @@ public class CredorCrudTest extends TesteGenerico {
     @Test
     public void atualizarCredor(){
         logger.info("Executando persistirCredor()");
-        TypedQuery<Credor> query = em.createNamedQuery("Credor.PorNome", Credor.class);
+        TypedQuery<Credor> query = em.createNamedQuery(Credor.CREDOR_POR_NOME, Credor.class);
         query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
         query.setParameter("nome", "João Amoedo");
         Credor credor = query.getSingleResult();
@@ -43,7 +43,7 @@ public class CredorCrudTest extends TesteGenerico {
     @Test
     public void atualizarCredorMerge(){
         logger.info("Executando atualizarCredorMerge()");
-        TypedQuery<Credor> query = em.createNamedQuery("Credor.PorNome", Credor.class);
+        TypedQuery<Credor> query = em.createNamedQuery(Credor.CREDOR_POR_NOME, Credor.class);
         query.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
         query.setParameter("nome", "Luka Modrich");
         Credor credor = query.getSingleResult();
@@ -60,7 +60,7 @@ public class CredorCrudTest extends TesteGenerico {
     @Test
     public void removerCredor() {
         logger.info("Executando removerCredor()");
-        TypedQuery<Credor> query = em.createNamedQuery("Credor.PorNome", Credor.class);
+        TypedQuery<Credor> query = em.createNamedQuery(Credor.CREDOR_POR_NOME, Credor.class);
         query.setParameter("nome", "Gildete de Souza");
         Credor credor = query.getSingleResult();
         assertNotNull(credor);

@@ -16,11 +16,11 @@ public class GuiaCrudTest extends TesteGenerico {
     public void atualizarGuia() {
         logger.info("Executando atualizarGuia()");
         
-        TypedQuery<Recepcao> queryrecepcao = em.createNamedQuery("Recepcao.PorNumero", Recepcao.class);
+        TypedQuery<Recepcao> queryrecepcao = em.createNamedQuery(Recepcao.RECEPCAO_POR_NUMERO, Recepcao.class);
         queryrecepcao.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
         queryrecepcao.setParameter("numero", 2018001);
         Recepcao recepcao = queryrecepcao.getSingleResult();
-        TypedQuery<Guia> queryguia = em.createNamedQuery("Guia.PorRecepcao", Guia.class);
+        TypedQuery<Guia> queryguia = em.createNamedQuery(Guia.GUIA_POR_RECEPCAO, Guia.class);
         queryguia.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
         queryguia.setParameter("idRecepcao", recepcao.getId());
         Guia guia = queryguia.getSingleResult();
@@ -36,11 +36,11 @@ public class GuiaCrudTest extends TesteGenerico {
     @Test
     public void atualizarGuiaMerge() {
         logger.info("Executando atualizarGuiaMerge()");
-        TypedQuery<Recepcao> queryrecepcao = em.createNamedQuery("Recepcao.PorNumero", Recepcao.class);
+        TypedQuery<Recepcao> queryrecepcao = em.createNamedQuery(Recepcao.RECEPCAO_POR_NUMERO, Recepcao.class);
         queryrecepcao.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
         queryrecepcao.setParameter("numero", 2018007);
         Recepcao recepcao = queryrecepcao.getSingleResult();
-        TypedQuery<Guia> queryguia = em.createNamedQuery("Guia.PorRecepcao", Guia.class);
+        TypedQuery<Guia> queryguia = em.createNamedQuery(Guia.GUIA_POR_RECEPCAO, Guia.class);
         queryguia.setHint("javax.persistence.cache.retrieveMode", CacheRetrieveMode.BYPASS);
         queryguia.setParameter("idRecepcao", recepcao.getId());
         Guia guia = queryguia.getSingleResult();

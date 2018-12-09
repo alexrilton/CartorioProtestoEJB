@@ -1,5 +1,6 @@
 package ifpe.dsc.cartorioprotesto.model;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.DiscriminatorValue;
@@ -12,8 +13,8 @@ import javax.validation.constraints.DecimalMin;
 @Entity
 @Table(name = "TB_ESCREVENTE")
 @DiscriminatorValue(value = "E")
-@PrimaryKeyJoinColumn(name="ID_USUARIO", referencedColumnName = "ID_USUARIO")
-public class Escrevente extends Usuario {
+@PrimaryKeyJoinColumn(name="ID", referencedColumnName = "ID")
+public class Escrevente extends Entidade implements Serializable {
     
     @DecimalMin("0.1")
     @Column(name = "NUM_SALARIO", nullable = false)
