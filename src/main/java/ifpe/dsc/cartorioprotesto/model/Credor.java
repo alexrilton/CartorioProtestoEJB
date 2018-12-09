@@ -22,7 +22,7 @@ import org.hibernate.validator.constraints.br.CPF;
 @Entity
 @Table(name = "TB_CREDOR")
 @SqlResultSetMapping(
-        name = "CredorQtdRecepcao",
+        name = Credor.CREDOR_QTD_RECEPCOES,
         classes = @ConstructorResult(
                 targetClass = CredorQtdRecepcao.class,
                 columns = {
@@ -37,6 +37,10 @@ import org.hibernate.validator.constraints.br.CPF;
 @NamedQueries(
         {
             @NamedQuery(
+                    name = Credor.CREDOR_TODOS,
+                    query = "SELECT c FROM Credor c ORDER BY c.nome"
+            ),
+            @NamedQuery(
                     name = Credor.CREDOR_POR_NOME,
                     query = "SELECT c FROM Credor c WHERE c.nome LIKE :nome ORDER BY c.id"
             )
@@ -47,6 +51,7 @@ import org.hibernate.validator.constraints.br.CPF;
 })
 public class Credor extends Entidade implements Serializable{
     
+    public static final String CREDOR_TODOS = "CredorTodos";
     public static final String CREDOR_POR_NOME = "CredorPorNome";
     public static final String CREDOR_QTD_RECEPCOES = "CredorQuantidadeRecepcoes";
             

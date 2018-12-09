@@ -31,15 +31,13 @@ public class CredorServico extends Servico<Credor> {
     @TransactionAttribute(TransactionAttributeType.SUPPORTS)
     @PermitAll
     public List<Credor> getCredor() {
-        return new ArrayList<Credor>();
-        //return getEntidades(Credor.FIND_ALL_CREDOR);
+        return getEntidades(Credor.CREDOR_TODOS);
     }
     
     @TransactionAttribute(TransactionAttributeType.SUPPORTS)
     @PermitAll
-    public Credor getClienteByCPF(String cpf) {
-        return new Credor();
-        //return super.getEntidade(Credor.FIND_BY_CPF, new Object[]{cpf});
+    public Credor getCredorPorNome(String cpf) {
+        return super.getEntidade(Credor.CREDOR_POR_NOME, new Object[]{cpf});
     }
 
     @TransactionAttribute(TransactionAttributeType.SUPPORTS)
