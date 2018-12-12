@@ -22,7 +22,7 @@ import org.hibernate.validator.constraints.br.CPF;
 @Entity
 @Table(name = "TB_CREDOR")
 @SqlResultSetMapping(
-        name = Credor.CREDOR_QTD_RECEPCOES,
+        name = "CredorQtdRecepcao",
         classes = @ConstructorResult(
                 targetClass = CredorQtdRecepcao.class,
                 columns = {
@@ -42,7 +42,7 @@ import org.hibernate.validator.constraints.br.CPF;
             ),
             @NamedQuery(
                     name = Credor.CREDOR_POR_NOME,
-                    query = "SELECT c FROM Credor c WHERE c.nome LIKE :nome ORDER BY c.id"
+                    query = "SELECT c FROM Credor c WHERE c.nome LIKE ?1 ORDER BY c.id"
             )
         }
 )

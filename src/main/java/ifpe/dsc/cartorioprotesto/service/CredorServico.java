@@ -36,8 +36,8 @@ public class CredorServico extends Servico<Credor> {
     
     @TransactionAttribute(TransactionAttributeType.SUPPORTS)
     @PermitAll
-    public Credor getCredorPorNome(String cpf) {
-        return super.getEntidade(Credor.CREDOR_POR_NOME, new Object[]{cpf});
+    public Credor getCredorPorNome(String nome) {
+        return super.getEntidade(Credor.CREDOR_POR_NOME, new Object[]{nome});
     }
 
     @TransactionAttribute(TransactionAttributeType.SUPPORTS)
