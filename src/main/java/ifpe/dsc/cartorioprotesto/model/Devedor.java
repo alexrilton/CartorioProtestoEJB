@@ -19,13 +19,18 @@ import org.hibernate.validator.constraints.br.CPF;
 @NamedQueries(
         {
             @NamedQuery(
+                    name = Devedor.DEVEDOR_TODOS,
+                    query = "SELECT d FROM Devedor d ORDER BY d.nome"
+            ),
+            @NamedQuery(
                     name = Devedor.DEVEDOR_POR_NOME,
-                    query = "SELECT d FROM Devedor d WHERE d.nome LIKE :nome ORDER BY d.id"
+                    query = "SELECT d FROM Devedor d WHERE d.nome LIKE ?1 ORDER BY d.nome"
             )
         }
 )
 public class Devedor extends Entidade implements Serializable{
     
+    public static final String DEVEDOR_TODOS = "DevedorTodos";
     public static final String DEVEDOR_POR_NOME = "DevedorPorNome";
     
     @NotBlank(message = "não pode estar vazio")

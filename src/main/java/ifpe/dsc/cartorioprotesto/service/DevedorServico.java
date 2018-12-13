@@ -3,7 +3,6 @@ package ifpe.dsc.cartorioprotesto.service;
 import java.util.List;
 import javax.annotation.security.PermitAll;
 import ifpe.dsc.cartorioprotesto.model.Devedor;
-import java.util.ArrayList;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -31,15 +30,13 @@ public class DevedorServico extends Servico<Devedor> {
     @TransactionAttribute(TransactionAttributeType.SUPPORTS)
     @PermitAll
     public List<Devedor> getDevedor() {
-        return new ArrayList<Devedor>();
-        //return getEntidades(Devedor.FIND_ALL_CREDOR);
+        return getEntidades(Devedor.DEVEDOR_TODOS);
     }
     
     @TransactionAttribute(TransactionAttributeType.SUPPORTS)
     @PermitAll
-    public Devedor getClienteByCPF(String cpf) {
-        return new Devedor();
-        //return super.getEntidade(Devedor.FIND_BY_CPF, new Object[]{cpf});
+    public Devedor getDevedorPorNome(String nome) {
+        return super.getEntidade(Devedor.DEVEDOR_POR_NOME, new Object[]{nome});
     }
 
     @TransactionAttribute(TransactionAttributeType.SUPPORTS)

@@ -47,8 +47,14 @@ public class CredorServicoTest {
         objectServico = null;
     }
 
+     @Test
+    public void consultarCredor() throws NamingException {
+        Credor object = objectServico.getCredorPorNome("Caio Fernandes");
+        Assert.assertNotNull(object);
+    }
+    
     @Test
-    public void inserirCredor() {
+    public void persistirCredor() {
         Credor credor = new Credor();
         credor.setNome("Persistio da Silva");
         credor.setEmail("perssistido@gmail.com");
@@ -61,7 +67,7 @@ public class CredorServicoTest {
     }
 
     @Test
-    public void inserirCredorInvalido() {
+    public void persitirCredorInvalido() {
         Credor credor = new Credor();
         credor.setNome("Teste validação com mais de 100 caracteres para checagem de tamanho do nome com a quantidade maxima de caracteres");//
         credor.setEmail("perssistidogmailcom");//Email inválido
@@ -83,12 +89,6 @@ public class CredorServicoTest {
                                 startsWith("may not be empty")));
             }
         }
-    }
-
-    @Test
-    public void consultarCredor() throws NamingException {
-        Credor object = objectServico.getCredorPorNome("Caio Fernandes");
-        Assert.assertNotNull(object);
     }
 
     @Test

@@ -42,7 +42,7 @@ import org.hibernate.validator.constraints.br.CPF;
             ),
             @NamedQuery(
                     name = Credor.CREDOR_POR_NOME,
-                    query = "SELECT c FROM Credor c WHERE c.nome LIKE ?1 ORDER BY c.id"
+                    query = "SELECT c FROM Credor c WHERE c.nome LIKE ?1 ORDER BY c.nome"
             )
         }
 )

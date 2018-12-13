@@ -3,7 +3,6 @@ package ifpe.dsc.cartorioprotesto.service;
 import java.util.List;
 import javax.annotation.security.PermitAll;
 import ifpe.dsc.cartorioprotesto.model.Credor;
-import java.util.ArrayList;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
