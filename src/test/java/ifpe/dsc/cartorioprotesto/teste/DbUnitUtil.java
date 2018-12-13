@@ -1,4 +1,4 @@
-package ifpe.dsc.cartorioprotesto.segundaentrega;
+package ifpe.dsc.cartorioprotesto.teste;
 
 import java.io.InputStream;
 import java.sql.Connection;

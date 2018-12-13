@@ -3,7 +3,6 @@ package ifpe.dsc.cartorioprotesto.service;
 import java.util.List;
 import javax.annotation.security.PermitAll;
 import ifpe.dsc.cartorioprotesto.model.Guia;
-import java.util.ArrayList;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -30,17 +29,22 @@ public class GuiaServico extends Servico<Guia> {
 
     @TransactionAttribute(TransactionAttributeType.SUPPORTS)
     @PermitAll
-    public List<Guia> getGuia() {
-        return new ArrayList<Guia>();
-        //return getEntidades(Guia.FIND_ALL_CREDOR);
+    public List<Guia> getGuias() {
+        return getEntidades(Guia.GUIA_TODAS);
     }
     
     @TransactionAttribute(TransactionAttributeType.SUPPORTS)
     @PermitAll
-    public Guia getClienteByCPF(String cpf) {
-        return new Guia();
-        //return super.getEntidade(Guia.FIND_BY_CPF, new Object[]{cpf});
+    public Guia getGuiaPorNumero(Long numero) {
+        return super.getEntidade(Guia.GUIA_POR_NUMERO, new Object[]{numero});
     }
+    
+    @TransactionAttribute(TransactionAttributeType.SUPPORTS)
+    @PermitAll
+    public List<Guia> getGuiasPorRecepcao(String idGuia) {
+        return super.getEntidades(Guia.GUIA_POR_RECEPCAO, new Object[]{idGuia});
+    }
+
 
     @TransactionAttribute(TransactionAttributeType.SUPPORTS)
     @PermitAll

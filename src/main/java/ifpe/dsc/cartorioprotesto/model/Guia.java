@@ -22,17 +22,22 @@ import javax.validation.constraints.NotNull;
 @NamedQueries(
         {
             @NamedQuery(
+                    name = Guia.GUIA_TODAS,
+                    query = "SELECT g FROM Guia g ORDER BY g.numero"
+            ),
+            @NamedQuery(
                     name = Guia.GUIA_POR_NUMERO,
-                    query = "SELECT g FROM Guia g WHERE g.numero LIKE :numero ORDER BY g.id"
+                    query = "SELECT g FROM Guia g WHERE g.numero LIKE ?1 ORDER BY g.id"
             ),
             @NamedQuery(
                     name = Guia.GUIA_POR_RECEPCAO,
-                    query = "SELECT g FROM Guia g WHERE g.recepcao.id = :idRecepcao ORDER BY g.id"
+                    query = "SELECT g FROM Guia g WHERE g.recepcao.id = ?1 ORDER BY g.id"
             )
         }
 )
 public class Guia extends Entidade implements Serializable{
     
+    public static final String GUIA_TODAS = "GuiaTodas";
     public static final String GUIA_POR_NUMERO = "GuiaPorNumero";
     public static final String GUIA_POR_RECEPCAO = "GuiaPorRecepcao";
     

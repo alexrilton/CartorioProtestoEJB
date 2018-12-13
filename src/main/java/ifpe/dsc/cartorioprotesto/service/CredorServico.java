@@ -29,8 +29,8 @@ public class CredorServico extends Servico<Credor> {
 
     @TransactionAttribute(TransactionAttributeType.SUPPORTS)
     @PermitAll
-    public List<Credor> getCredor() {
-        return getEntidades(Credor.CREDOR_TODOS);
+    public List<Credor> getCredores() {
+        return super.getEntidades(Credor.CREDOR_TODOS);
     }
     
     @TransactionAttribute(TransactionAttributeType.SUPPORTS)

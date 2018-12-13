@@ -1,4 +1,4 @@
-package ifpe.dsc.cartorioprotesto.segundaentrega;
+package ifpe.dsc.cartorioprotesto.teste;
 
 import ifpe.dsc.cartorioprotesto.model.Devedor;
 import ifpe.dsc.cartorioprotesto.service.DevedorServico;
