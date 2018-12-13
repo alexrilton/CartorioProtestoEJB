@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+</h:head>
+<h:body>
+    <h1>Gerenciamento de devedor</h1>
+
+    <h:form>
+        <p:panelGrid class="ui-noborder"> 
+            <p:row>  
+                <p:column> 
+                    <p:outputLabel value="Nome:" for="nome" />
+                </p:column> 
+                <p:column> 
+                    <p:inputText id="nome" value="#{devedor.nome}" maxlength="100" />
+                </p:column> 
+            </p:row>
+            <p:row>
+                <p:column>
+                    <p:outputLabel value="CPF:" for="cpf" />
+                </p:column> 
+                <p:column> 
+                    <p:inputMask id="cpf" value="#{devedor.cpf}" mask="999.999.999-99" />
+                </p:column> 
+            </p:row>
+        </p:panelGrid>
+
+        <p:commandButton value="Salvar" action="DevedorServico.salvar" id="salvar" ajax="false"/>
+    </h:form>
+</h:body>
+</html>
