@@ -9,10 +9,6 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.inject.Inject;
 
-/**
- *
- * @author Alex
- */
 @ManagedBean(name = "credorBean")
 @javax.faces.bean.RequestScoped
 public class CredorBean extends AbstractBean implements Serializable {
