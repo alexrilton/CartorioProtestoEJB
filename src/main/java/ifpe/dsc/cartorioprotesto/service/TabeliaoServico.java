@@ -1,9 +1,11 @@
 package ifpe.dsc.cartorioprotesto.service;
 
-import java.util.List;
 import javax.annotation.security.PermitAll;
 import ifpe.dsc.cartorioprotesto.model.Tabeliao;
-import java.util.ArrayList;
+import java.io.UnsupportedEncodingException;
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -30,16 +32,8 @@ public class TabeliaoServico extends Servico<Tabeliao> {
 
     @TransactionAttribute(TransactionAttributeType.SUPPORTS)
     @PermitAll
-    public List<Tabeliao> getTabeliao() {
-        return new ArrayList<Tabeliao>();
-        //return getEntidades(Tabeliao.FIND_ALL_CREDOR);
-    }
-    
-    @TransactionAttribute(TransactionAttributeType.SUPPORTS)
-    @PermitAll
-    public Tabeliao getClienteByCPF(String cpf) {
-        return new Tabeliao();
-        //return super.getEntidade(Tabeliao.FIND_BY_CPF, new Object[]{cpf});
+    public Tabeliao getTabeliaoPorNome(String nome) {
+        return getEntidade(Tabeliao.TABELIAO_POR_NOME, new Object[]{nome});
     }
 
     @TransactionAttribute(TransactionAttributeType.SUPPORTS)
@@ -47,5 +41,25 @@ public class TabeliaoServico extends Servico<Tabeliao> {
     public Tabeliao criar() {
         return new Tabeliao();
     }
+    
+    public void criptografarSenha(Tabeliao tabeliao) throws Exception{
+        tabeliao.setSenha(criptografarSenha(tabeliao.getSenha()));
+    }
+    
+    private static String criptografarSenha(String senha) throws Exception {
+		MessageDigest md;
+		try {
+			md = MessageDigest.getInstance("SHA-256");
+			md.update(senha.getBytes("UTF-8"));
+			byte[] digest = md.digest();
+			BigInteger bigInt = new BigInteger(1, digest);
+			String output = bigInt.toString(16);
+			return output;
+		} catch (NoSuchAlgorithmException e) {
+			throw new Exception("Não foi possível criptografar a senha!");
+		} catch (UnsupportedEncodingException e) {
+			throw new Exception("Não foi possível criptografar a senha!");
+		}
+	}
 
 }

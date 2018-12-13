@@ -42,6 +42,10 @@ public abstract class Usuario extends Entidade implements Serializable {
     @Column(name = "TXT_SENHA")
     private String senha;
     
+    @NotBlank
+    @Column(name = "TXT_GRUPO")
+    private String grupo;
+    
     public String getNome() {
         return nome;
     }
@@ -72,5 +76,13 @@ public abstract class Usuario extends Entidade implements Serializable {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public String getGrupo() {
+        return grupo;
+    }
+
+    public void setGrupo(String grupo) {
+        this.grupo = grupo;
     }
 }

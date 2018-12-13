@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+<ui:composition template="/WEB-INF/templates/__commonLayout.xhtml">
+
+	<ui:define name="title">
+		Acesso não autorizado!
+	</ui:define>
+	
+	<ui:define name="content">
+		<p:panel style="width : 100%; text-align:center">
+			<h:outputText value="Você não tem acesso a este recurso do sistema!" />
+		</p:panel>
+	</ui:define>
+
+</ui:composition>
+</html>
