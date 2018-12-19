@@ -1,56 +1,77 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://xmlns.jcp.org/jsf/html"
-	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:p="http://primefaces.org/ui"
-	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-<ui:composition template="/WEB-INF/templates/__commonLayout.xhtml">
-    <ui:define name="title">
-            Lista de credores
-    </ui:define>
-    <ui:define name="content">
-        <p:messages id="idMessages" showDetail="true" closable="true" />
+    <ui:composition template="/WEB-INF/templates/__commonLayout.xhtml">
+        <ui:define name="title">Credores</ui:define> 
+        <ui:define name="content">
+            <h:body>
+                <h:form id="gerenciamentoCredor">
+                    <p:dataTable 
+                        id="tableCredores" 
+                        var="credor"
+                        value="#{credorBean.credores}" 
+                        paginatorPosition="bottom"
+                        rows="15"
+                        paginator="true" 
+                        paginatorAlwaysVisible="false"
+                        widgetVar="findCredores" 
+                        reflow="true"
+                        emptyMessage="Nenhum credor Cadastrado"
+                        rowKey="#{credor.nome}"
+                        styleClass="ui-datatable"
+                        selectionMode="single"
+                        sortBy="#{credor.nome}"
+                        sortOrder="ascending"
+                        selection="#{credorBean.credorSelecionado}">
 
-        <p:link outcome="/paginas/usuario/gerenciamento_credor" value="Add user" disabled="#{credorBean.getTipoUsuario('ADMIN')}" />
+                        <f:facet name="header">
+                            <div align="left">
+                                <p:inputText id="globalFilter" value="#{credorBean.buscarPorNome}" style="width:300px;" placeholder="Filtro de pesquisa por nome do credor">
+                                    <p:ajax event="keyup" update="@this tableCredores" process="@this tableCredores" listener="#{credorBean.buscarPorNome}"/>
+                                </p:inputText>
 
-        <p:fieldset legend="Filtro">
-            <h:form id="formFiltro">
-                <h:outputText value="Nome do Usuário: " />
-                <p:inputText id="itNomeFiltro" value="#{credorBean.buscarPorNome}"
-                        style="width:350px" />
+                                <p:button id="buttonNovoCredor" icon="fa fa-plus" value="NOVO" styleClass="btnn-primary" style="float:right;font-size: 17px" outcome="/paginas/usuario/gerenciamento_credor">
+                                    <p:tooltip for="buttonNovoCredor" value="Cadastrar novo credor" />
+                                </p:button>
+                                <p:commandLink id="btnn_filter" style="font-size: 22px !important; margin-left:10px;">
+                                    <i class="fa fa-filter" aria-hidden="true"></i>
+                                    <p:tooltip value="Filtro de busca" for="btnn_filter"/>
+                                </p:commandLink>
+                            </div>
+                        </f:facet>
 
-                <p:commandButton id="btnBuscarBotao" value="Buscar"
-                        action="#{credorBean.buscarPorNome}" update=":dataTableUsuarios" />
-                <p:commandButton id="btnLimparBotao" value="Limpar"
-                        action="#{credorBean.limpar}" update="formFiltro" process="@this">
-                    <p:resetInput target="formFiltro" />
-                </p:commandButton>
+                        <p:ajax event="rowSelect" listener="#{credorBean.renderTo}">
+                            <f:setPropertyActionListener value="#{credor}" target="#{credorBean.credorSelecionado}" />
+                        </p:ajax>
+                        
+                        <p:column headerText="ID" width="2%" filterBy="#{credor.id}" sortBy="#{credor.id}" filterStyle="display:none;">
+                            <h:outputText id="id" value="#{credor.id}" />
+                        </p:column>
+                        
+                        <p:column headerText="Nome" width="2%" filterBy="#{credor.nome}" sortBy="#{credor.nome}" filterStyle="display:none;">
+                            <h:outputText id="nome" value="#{credor.nome}" />
+                        </p:column>
 
-            </h:form>
-        </p:fieldset>
-        <p:fieldset legend="Resultado">
-            <p:dataTable id="dataTableUsuarios" var="credor" value="#{credorBean.credores}"
-                        emptyMessage="Nenhum registro encontrado.">
-                <p:column headerText="Nome">
-                    <h:outputText value="#{credor.nome}" />
-                </p:column>
+                        <p:column headerText="CPF" width="6%" filterBy="#{credor.cpf}" filterStyle="display:none;">
+                            <h:outputText id="cpf" value="#{credor.cpf}" />
+                        </p:column>
 
-                <p:column headerText="CPF">
-                    <h:outputText value="#{credor.cpf}" />
-                </p:column>
+                        <p:column headerText="Telefone" width="4%" filterBy="#{credor.telefone}" filterStyle="display:none;">
+                            <h:outputText id="telefone" value="#{credor.telefone}" />
+                        </p:column>
 
-                <p:column headerText="Email">
-                    <h:outputText value="#{credor.email}" />
-                </p:column>
+                        <p:column headerText="E-mail" width="3%" filterBy="#{credor.email}" filterStyle="display:none;">
+                            <h:outputText id="email" value="#{credor.email}" />
+                        </p:column>
 
-                <p:column headerText="Telefone">
-                    <h:outputText value="#{credor.telefone}" />
-                </p:column>                      
-				
-            </p:dataTable>
-        </p:fieldset>
-    </ui:define>
-</ui:composition>
+                    </p:dataTable>
+                </h:form>
+            </h:body>
+        </ui:define>        
+    </ui:composition>
 
 </html>

@@ -1,7 +1,9 @@
-package ifpe.dsc.cartorioprotesto.bean;
+package ifpe.dsc.cartorioprotesto.beans.credores;
 
+import ifpe.dsc.cartorioprotesto.bean.AbstractBean;
 import ifpe.dsc.cartorioprotesto.model.Credor;
 import ifpe.dsc.cartorioprotesto.service.CredorServico;
+import ifpe.dsc.cartorioprotesto.util.jsf.JSFUtils;
 import java.io.Serializable;
 import java.util.List;
 import javax.annotation.PostConstruct;
@@ -16,10 +18,13 @@ public class CredorBean extends AbstractBean implements Serializable {
     @Inject
     @EJB
     private CredorServico credorServico;
+    
+    private Credor credorSelecionado;
 
     private List<Credor> credores;
 
     private String buscarPorNome;
+    
 
     public List<Credor> getCredores() {
         return credores;
@@ -35,6 +40,16 @@ public class CredorBean extends AbstractBean implements Serializable {
 
     public void setBuscarPorNome(String buscarPorNome) {
         this.buscarPorNome = buscarPorNome;
+    }
+    
+    
+
+    public Credor getCredorSelecionado() {
+        return credorSelecionado;
+    }
+
+    public void setCredorSelecionado(Credor credorSelecionado) {
+        this.credorSelecionado = credorSelecionado;
     }
 
     @PostConstruct
@@ -59,4 +74,9 @@ public class CredorBean extends AbstractBean implements Serializable {
             System.out.println(e.getMessage());
         }
     }
+    
+    public void renderTo() {
+		JSFUtils.rederTo("gerenciamento_devedor.xhtml");
+		JSFUtils.setParam("credor", credorSelecionado);
+	}
 }

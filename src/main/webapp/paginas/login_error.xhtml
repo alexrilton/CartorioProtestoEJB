@@ -5,22 +5,30 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-    <ui:composition template="/WEB-INF/templates/__commonLayout.xhtml">
+    <h:head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/dist/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/bootstrap/css/bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/dist/css/style-components.css" />
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/pace/pace.min.css" />
+        <link rel="icon" type="image/x-icon" href="http://localhost:8080/sicAgro/resources/images/leaf.png" />
 
-        <ui:define name="title">
-            Login
-        </ui:define>
+        <title><ui:insert name="title">Cartorio Protesto - Erro Login</ui:insert></title>
+    </h:head>
 
-        <ui:define name="header">
-            <p:panel style="width : 100%; text-align:center">
-                <p:link outcome="/paginas/index?faces-redirect=true" value="Cartorio Protesto" />
-            </p:panel>
-        </ui:define>
+    <h:body styleClass="login-page">
+        <nav class="navbar navbar-inverse navbar-fixed-top">            
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <p:link styleClass="navbar-brand" outcome="/paginas/index?faces-redirect=true" value="Cartorio Protesto" />
+                </div>
+            </div>
+        </nav>  
 
-        <ui:define name="content">
+        <p:panel styleClass="box box-success login-box"
+                 style="text-align: center; width: 360px; margin-top:150px;">
             <p:panel header="Erro no Login">Login e/ou senha errados.<p:link outcome="/paginas/login" value="Por favor tente novamente!" />
             </p:panel>
-        </ui:define>
-
-    </ui:composition>
+        </p:panel>
+    </h:body>
 </html>

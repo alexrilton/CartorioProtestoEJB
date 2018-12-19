@@ -15,33 +15,39 @@
     </h:head>
 
     <h:body>
+        <h:form>
+            <div class="wrapper">
+                <header class="main-header">
+                    <nav class="navbar navbar-inverse navbar-fixed-top">            
+                        <div class="container-fluid">
+                            <div class="navbar-header">
+                                <p:link styleClass="navbar-brand" outcome="/paginas/index?faces-redirect=true" value="Cartorio Protesto" />
+                            </div>
+                            <ul class="nav navbar-nav navbar-right">
+                                <h4 class="navbar-text">Olá, #{logoutBean.loginUsuario}</h4>
+                                <li class="active">
+                                    <p:commandLink styleClass="navbar-brand" style="text-align:right" action="#{logoutBean.efetuarLogout}" value="Logout" />
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </header>
+                <aside class="main-sidebar">
+
+                    <section class="sidebar">
+                        <ul class="sidebar-menu">
+                            <ui:include src="/WEB-INF/templates/_menu_admin.xhtml" />
+                        </ul>
+                    </section>
+                </aside>
+
+                <div class="content-wrapper" style="margin-top:50px;">
+                    <section class="content">
+                        <ui:insert name="content"></ui:insert>
+                    </section>
+                </div>
+            </div>
+        </h:form>
         <h:outputScript name="locale-primefaces.js" library="js" />
-
-        <ui:debug hotkey="z" />
-
-        <div id="header">
-            <ui:insert name="header">
-                <p:panel style="width : 100%">
-                    <h:panelGrid columns="3" cellpadding="10">
-                        <p:link outcome="/paginas/index?faces-redirect=true" value="Cartorio Protesto" />
-                        <h:outputLabel value="Olá, #{logoutBean.loginUsuario}" />
-                        <h:form>
-                            <p:commandLink style="text-align:right" action="#{logoutBean.efetuarLogout}" ajax="false" value="Logout" />
-                        </h:form>
-                    </h:panelGrid>  
-                </p:panel>                
-            </ui:insert>            
-        </div>
-
-        <div id="content">
-            <ui:insert name="content" />
-        </div>       
-
-        <div id="footer">
-            <p:panel style="width : 100%; text-align:center">
-                <h:outputLabel value="Guilex do Brasil - v1.0" />
-            </p:panel>
-        </div>
-
     </h:body>
 </html>
