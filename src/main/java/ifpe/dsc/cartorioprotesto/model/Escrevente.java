@@ -14,7 +14,7 @@ import javax.validation.constraints.DecimalMin;
 @Table(name = "TB_ESCREVENTE")
 @DiscriminatorValue(value = "E")
 @PrimaryKeyJoinColumn(name="ID", referencedColumnName = "ID")
-public class Escrevente extends Entidade implements Serializable {
+public class Escrevente extends Usuario implements Serializable {
     
     public static final String ESCREVENTE_POR_NOME = "EscreventePorNome";
     
