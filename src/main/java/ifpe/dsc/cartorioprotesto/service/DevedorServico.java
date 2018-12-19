@@ -29,7 +29,7 @@ public class DevedorServico extends Servico<Devedor> {
 
     @TransactionAttribute(TransactionAttributeType.SUPPORTS)
     @PermitAll
-    public List<Devedor> getDevedor() {
+    public List<Devedor> getDevedores() {
         return getEntidades(Devedor.DEVEDOR_TODOS);
     }
     

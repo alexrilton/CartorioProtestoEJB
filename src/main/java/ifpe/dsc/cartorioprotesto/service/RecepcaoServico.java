@@ -30,7 +30,7 @@ public class RecepcaoServico extends Servico<Recepcao> {
 
     @TransactionAttribute(TransactionAttributeType.SUPPORTS)
     @PermitAll
-    public List<Recepcao> getRecepcao() {
+    public List<Recepcao> getRecepcoes() {
         return new ArrayList<Recepcao>();
         //return getEntidades(Recepcao.FIND_ALL_CREDOR);
     }
@@ -40,6 +40,12 @@ public class RecepcaoServico extends Servico<Recepcao> {
     public Recepcao getClienteByCPF(String cpf) {
         return new Recepcao();
         //return super.getEntidade(Recepcao.FIND_BY_CPF, new Object[]{cpf});
+    }
+    
+    @TransactionAttribute(TransactionAttributeType.SUPPORTS)
+    @PermitAll
+    public Recepcao getRecepcaoPorNumero(String nome) {
+        return super.getEntidade(Recepcao.RECEPCAO_POR_NUMERO, new Object[]{nome});
     }
 
     @TransactionAttribute(TransactionAttributeType.SUPPORTS)

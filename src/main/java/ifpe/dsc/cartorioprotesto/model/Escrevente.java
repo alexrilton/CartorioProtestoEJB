@@ -16,6 +16,8 @@ import javax.validation.constraints.DecimalMin;
 @PrimaryKeyJoinColumn(name="ID", referencedColumnName = "ID")
 public class Escrevente extends Entidade implements Serializable {
     
+    public static final String ESCREVENTE_POR_NOME = "EscreventePorNome";
+    
     @DecimalMin("0.1")
     @Column(name = "NUM_SALARIO", nullable = false)
     private double salario;

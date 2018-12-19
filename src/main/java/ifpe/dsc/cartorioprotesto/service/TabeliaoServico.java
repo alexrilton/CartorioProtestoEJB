@@ -1,11 +1,13 @@
 package ifpe.dsc.cartorioprotesto.service;
 
-import javax.annotation.security.PermitAll;
 import ifpe.dsc.cartorioprotesto.model.Tabeliao;
+import javax.annotation.security.PermitAll;
 import java.io.UnsupportedEncodingException;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
@@ -28,6 +30,13 @@ public class TabeliaoServico extends Servico<Tabeliao> {
     public void remover(Tabeliao object) {
         object = entityManager.merge(object);
         entityManager.remove(object);
+    }
+    
+    @TransactionAttribute(TransactionAttributeType.SUPPORTS)
+    @PermitAll
+    public List<Tabeliao> getTabelioes() {
+        return new ArrayList<Tabeliao>();
+        //return getEntidades(Tabeliao.FIND_ALL_CREDOR);
     }
 
     @TransactionAttribute(TransactionAttributeType.SUPPORTS)

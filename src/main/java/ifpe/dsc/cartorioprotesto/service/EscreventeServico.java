@@ -30,7 +30,7 @@ public class EscreventeServico extends Servico<Escrevente> {
 
     @TransactionAttribute(TransactionAttributeType.SUPPORTS)
     @PermitAll
-    public List<Escrevente> getEscrevente() {
+    public List<Escrevente> getEscreventes() {
         return new ArrayList<Escrevente>();
         //return getEntidades(Escrevente.FIND_ALL_CREDOR);
     }
@@ -40,6 +40,12 @@ public class EscreventeServico extends Servico<Escrevente> {
     public Escrevente getClienteByCPF(String cpf) {
         return new Escrevente();
         //return super.getEntidade(Escrevente.FIND_BY_CPF, new Object[]{cpf});
+    }
+    
+    @TransactionAttribute(TransactionAttributeType.SUPPORTS)
+    @PermitAll
+    public Escrevente getEscreventePorNome(String nome) {
+        return super.getEntidade(Escrevente.ESCREVENTE_POR_NOME, new Object[]{nome});
     }
 
     @TransactionAttribute(TransactionAttributeType.SUPPORTS)

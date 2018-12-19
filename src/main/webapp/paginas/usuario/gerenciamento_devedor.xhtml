@@ -1,38 +1,47 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
-"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:ui="http://java.sun.com/jsf/facelets"
-	xmlns:p="http://primefaces.org/ui">
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
-<h:head>
-</h:head>
-<h:body>
-    <h1>Gerenciamento de devedor</h1>
+<ui:composition template="/WEB-INF/templates/__commonLayout.xhtml">
+	<ui:define name="title">
+		User list
+	</ui:define>
+	<ui:define name="content">
+		<p:messages id="idMessages" showDetail="true" closable="true" />
 
-    <h:form>
-        <p:panelGrid class="ui-noborder"> 
-            <p:row>  
-                <p:column> 
-                    <p:outputLabel value="Nome:" for="nome" />
-                </p:column> 
-                <p:column> 
-                    <p:inputText id="nome" value="#{devedor.nome}" maxlength="100" />
-                </p:column> 
-            </p:row>
-            <p:row>
-                <p:column>
-                    <p:outputLabel value="CPF:" for="cpf" />
-                </p:column> 
-                <p:column> 
-                    <p:inputMask id="cpf" value="#{devedor.cpf}" mask="999.999.999-99" />
-                </p:column> 
-            </p:row>
-        </p:panelGrid>
+                <!--p:link outcome="/index" value="Add user" disabled="#{devedorBean.getTipoUsuario('ADMIN')}" /-->
 
-        <p:commandButton value="Salvar" action="DevedorServico.salvar" id="salvar" ajax="false"/>
-    </h:form>
-</h:body>
+		<p:fieldset legend="Filtro">
+                    <h:form id="formFiltro">
+                        <h:outputText value="Nome do Usuário: " />
+                        <p:inputText id="itNomeFiltro" value="#{devedorBean.buscarPorNome}"
+                                style="width:350px" />
+
+                        <p:commandButton id="btnBuscarBotao" value="Buscar"
+                                action="#{devedorBean.buscarPorNome}" update=":dataTableUsuarios" />
+                        <p:commandButton id="btnLimparBotao" value="Limpar"
+                                action="#{devedorBean.limpar}" update="formFiltro" process="@this">
+                            <p:resetInput target="formFiltro" />
+                        </p:commandButton>
+
+                    </h:form>
+		</p:fieldset>
+		<p:fieldset legend="Resultado">
+                    <p:dataTable id="dataTableUsuarios" var="devedor" value="#{devedorBean.devedores}"
+                            emptyMessage="Nenhum registro encontrado.">
+                        <p:column headerText="Nome">
+                            <h:outputText value="#{devedor.nome}" />
+                        </p:column>
+
+                        <p:column headerText="CPF">
+                            <h:outputText value="#{devedor.cpf}" />
+                        </p:column>				
+                    </p:dataTable>
+		</p:fieldset>
+	</ui:define>
+</ui:composition>
+
 </html>
