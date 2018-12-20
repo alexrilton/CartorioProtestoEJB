@@ -7,6 +7,7 @@
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
 
     <f:metadata>
+        <o:viewParam name="credor" value="#{credorEditBean.credor}" converter="#{credorConverter}" />
         <f:event listener="#{credorEditBean.preRenderView()}" type="preRenderView" />
     </f:metadata>
 
@@ -21,17 +22,17 @@
                         <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank"
                                      columnClasses="ui-grid-col-1">
                             <p:outputLabel for="nome" value="Nome:" />
-                            <p:inputText id="nome" required="true" value="#{credorEditBean.nome}" maxlength="100">
+                            <p:inputText id="nome" required="true" value="#{credorEditBean.credor.nome}" maxlength="100">
                             </p:inputText>
 
                             <p:outputLabel for="cpf" value="CPF:" />
-                            <p:inputMask id="cpf" required="true" value="#{credorEditBean.cpf}" mask="999.999.999-99" />
+                            <p:inputMask id="cpf" required="true" value="#{credorEditBean.credor.cpf}" mask="999.999.999-99" />
                             
                             <p:outputLabel for="telefone" value="Telefone:" />
-                            <p:inputMask id="telefone" required="true" value="#{credorEditBean.telefone}" mask="(99) 9999-9999?9"/>
+                            <p:inputMask id="telefone" required="true" value="#{credorEditBean.credor.telefone}" mask="(99) 9999-9999?9"/>
                             
                             <p:outputLabel for="email" value="Email:" />
-                            <p:inputText id="email" required="true" value="#{credorEditBean.email}"/>
+                            <p:inputText id="email" required="true" value="#{credorEditBean.credor.email}"/>
 
                         </p:panelGrid>
                         <div class="box-footer">

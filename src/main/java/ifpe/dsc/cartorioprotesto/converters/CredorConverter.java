@@ -20,9 +20,6 @@ public class CredorConverter implements Converter {
 	@Inject
 	private CredorServico produtoService;
 
-	/**
-	 * 
-	 */
 	@Override
 	public Object getAsObject(FacesContext context, UIComponent component, String value) {
 		if (value == null || value.trim().isEmpty()) {
@@ -36,9 +33,6 @@ public class CredorConverter implements Converter {
 	        }
 	}
 
-	/**
-	 * 
-	 */
 	@Override
 	public String getAsString(FacesContext context, UIComponent component, Object value) {
 		if (value == null) {

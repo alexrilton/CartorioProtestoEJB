@@ -71,7 +71,7 @@ public class Credor extends Entidade implements Serializable{
     @Column(name = "TXT_CPF")
     private String cpf;
     
-    @Column(name = "TXT_TELEFONE", length = 10, nullable = false, unique = true)
+    @Column(name = "TXT_TELEFONE", length = 20, nullable = false, unique = true)
     private String telefone;
     
     @NotBlank

@@ -10,7 +10,7 @@ public class JSFUtils implements Serializable {
 
 	private static final long serialVersionUID = 712599930272775732L;
         
-	public static void rederTo(String page) {
+	public static void renderTo(String page) {
 	      try {
 	            FacesContext.getCurrentInstance().getExternalContext().getFlash().setKeepMessages(true);
 	            FacesContext.getCurrentInstance().getExternalContext().redirect(page);

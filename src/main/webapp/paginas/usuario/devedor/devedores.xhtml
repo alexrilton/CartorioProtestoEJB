@@ -34,9 +34,9 @@
                                     <p:ajax event="keyup" update="@this tableCredores" process="@this tableCredores" listener="#{credorBean.buscarPorNome}"/>
                                 </p:inputText>
 
-                                <h:commandButton id="buttonNovoCredor" value="NOVO" styleClass="btnn-primary" style="float:right;font-size: 17px" action="#{credorBean.renderTo('adcionar')}">
+                                <p:button id="buttonNovoCredor" icon="fa fa-plus" value="NOVO" styleClass="btnn-primary" style="float:right;font-size: 17px" outcome="/paginas/usuario/credor/credore_edit">
                                     <p:tooltip for="buttonNovoCredor" value="Cadastrar novo credor" />
-                                </h:commandButton>
+                                </p:button>
                                 <p:commandLink id="btnn_filter" style="font-size: 22px !important; margin-left:10px;">
                                     <i class="fa fa-filter" aria-hidden="true"></i>
                                     <p:tooltip value="Filtro de busca" for="btnn_filter"/>
@@ -44,7 +44,7 @@
                             </div>
                         </f:facet>
 
-                        <p:ajax event="rowSelect" listener="#{credorBean.renderTo('editar')}">
+                        <p:ajax event="rowSelect" listener="#{credorBean.renderTo}">
                             <f:setPropertyActionListener value="#{credor}" target="#{credorEditBean.credor}" />
                         </p:ajax>
                         
