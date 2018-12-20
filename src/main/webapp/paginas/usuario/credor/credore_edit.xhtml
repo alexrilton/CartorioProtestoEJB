@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:o="http://omnifaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <f:metadata>
+        <o:viewParam name="produto" value="#{credorEditBean.credor}" converter="#{produtoConverter}" />
+        <f:event listener="#{credorEditBean.preRenderView()}" type="preRenderView" />
+    </f:metadata>
+
+    <ui:composition template="/WEB-INF/templates/__commonLayout.xhtml">
+        <ui:define name="title">Credores</ui:define> 
+        <ui:define name="content">
+            <h:body>
+                <h:form id="formCredorEdit">
+                    <p:messages id="messages" autoUpdate="true" showDetail="true" closable="true" />
+
+                    <p:fieldset styleClass="box box-success">
+                        <p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank"
+                                     columnClasses="ui-grid-col-1">
+
+                            <p:outputLabel for="id" value="Id" rendered="#{credorEditBean.credor.id == null}"/>
+                            <p:inputText id="id" value="#{credorEditBean.credor.id}" required="true" rendered="#{credorEditBean.credor.id == null}">
+                                <p:ajax event="keyup" update="messages" />
+                            </p:inputText>
+
+                            <p:outputLabel for="nome" value="Nome" />
+                            <p:inputText id="nome" required="true" value="#{credorEditBean.credor.nome}" maxlength="100">
+                            </p:inputText>
+
+                            <p:outputLabel for="cpf" value="CPF" />
+                            <p:inputMask id="cpf" required="true" value="#{credorEditBean.credor.cpf}" mask="999.999.999-99" />
+                            
+                            <p:outputLabel for="telefone" value="Telfone" />
+                            <p:inputMask id="telefone" required="true" value="#{credorEditBean.credor.telefone}" mask="(99) 9999-9999?9"/>
+
+                        </p:panelGrid>
+                        <div class="box-footer">
+                            <h:panelGrid columns="5">
+                                <p:commandButton value="#{credorEditBean.credorEdit ? 'Editar' : 'Salvar'}" id="btSave" process="formCredorEdit" icon="fa fa-floppy-o" styleClass="btnn btnn-primary" action="#{credorEditBean.save()}" />
+                                <p:spacer width="3px" />
+                                <p:button value="Cancelar" id="cancel" icon="fa fa-ban" styleClass="btnn btnn-danger" outcome="/paginas/usuario/credor/credores" />
+                                <p:spacer width="3px"/>
+                            </h:panelGrid>
+                        </div>
+                    </p:fieldset>
+                </h:form>
+            </h:body>
+        </ui:define>        
+    </ui:composition>
+
+</html>

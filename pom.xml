@@ -12,7 +12,7 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <glassfish.embedded-static-shell.jar>/Applications/NetBeans/glassfish4/glassfish/lib/embedded/glassfish-embedded-static-shell.jar</glassfish.embedded-static-shell.jar>
+        <glassfish.embedded-static-shell.jar>C:/Program Files/glassfish-4.1.1/glassfish/lib/embedded/glassfish-embedded-static-shell.jar</glassfish.embedded-static-shell.jar>
     </properties>
     
     <dependencies>
@@ -68,9 +68,12 @@
             <artifactId>primefaces</artifactId>
             <version>6.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.omnifaces</groupId>
+            <artifactId>omnifaces</artifactId>
+            <version>1.10</version>
+        </dependency>
     </dependencies>
-
     <build>
         <plugins>
             <plugin>

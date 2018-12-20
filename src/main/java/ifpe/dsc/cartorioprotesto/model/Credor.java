@@ -41,6 +41,10 @@ import org.hibernate.validator.constraints.br.CPF;
                     query = "SELECT c FROM Credor c ORDER BY c.nome"
             ),
             @NamedQuery(
+                    name = Credor.CREDOR_POR_ID,
+                    query = "SELECT c FROM Credor c WHERE c.id = ?1 ORDER BY c.id"
+            ),
+            @NamedQuery(
                     name = Credor.CREDOR_POR_NOME,
                     query = "SELECT c FROM Credor c WHERE c.nome LIKE ?1 ORDER BY c.nome"
             )
@@ -52,6 +56,7 @@ import org.hibernate.validator.constraints.br.CPF;
 public class Credor extends Entidade implements Serializable{
     
     public static final String CREDOR_TODOS = "CredorTodos";
+    public static final String CREDOR_POR_ID = "CredorPorID";
     public static final String CREDOR_POR_NOME = "CredorPorNome";
     public static final String CREDOR_QTD_RECEPCOES = "CredorQuantidadeRecepcoes";
             

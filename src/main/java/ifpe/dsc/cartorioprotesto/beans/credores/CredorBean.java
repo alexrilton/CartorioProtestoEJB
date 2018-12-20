@@ -76,7 +76,7 @@ public class CredorBean extends AbstractBean implements Serializable {
     }
     
     public void renderTo() {
-		JSFUtils.rederTo("gerenciamento_devedor.xhtml");
+		JSFUtils.rederTo("credore_edit.xhtml");
 		JSFUtils.setParam("credor", credorSelecionado);
 	}
 }
